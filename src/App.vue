@@ -1,44 +1,11 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+  <v-app class="background-red">
+    <v-app-bar v-if="$router.currentRoute.name != 'home'" app color="#8C251C" dark flat>
+      <v-icon dark @click="goHome">mdi-arrow-left</v-icon>
     </v-app-bar>
 
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -48,8 +15,21 @@
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  methods: {
+    goHome() {
+      this.$router.push("/")
+    }
+  }
 };
 </script>
+
+<style>
+.background-red {
+  background: radial-gradient(circle,
+      #8C251C,
+      #BF3326) !important;
+  background-repeat: no-repeat !important;
+  -webkit-font-smoothing: antialiased !important;
+  color: white !important;
+}
+</style>
