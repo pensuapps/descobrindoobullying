@@ -1,34 +1,64 @@
 <template>
-  <v-container class="fill-height d-flex flex-column justify-space-between content-size">
+  <v-container
+    class="fill-height d-flex flex-column justify-space-between content-size"
+  >
     <template v-if="!showResult">
       <div class="full-width">
-        <v-img :src="require(`../assets/images/bullyingGame/${currentQuestion.img}.png`)" max-height="212"
-          max-width="328" cover class="bg-grey-lighten-2 rounded-lg mx-auto"></v-img>
+        <v-img
+          :src="
+            require(`../assets/images/bullyingGame/${currentQuestion.img}.png`)
+          "
+          max-height="212"
+          max-width="328"
+          cover
+          class="bg-grey-lighten-2 rounded-lg mx-auto"
+        ></v-img>
 
         <h3 class="text-justify mt-3">
           {{ currentQuestion.text }}
         </h3>
       </div>
       <div class="full-width">
-        <v-btn v-for="(answare, i) in currentQuestion.answers" :key="i" class="my-2" color="#3174CC"
-          @click="handleAnsware(answare.score)" block rounded depressed dark>
+        <v-btn
+          v-for="(answare, i) in currentQuestion.answers"
+          :key="i"
+          class="my-2"
+          color="#3174CC"
+          @click="handleAnsware(answare.score)"
+          block
+          rounded
+          depressed
+          dark
+        >
           {{ answare.text }}
         </v-btn>
       </div>
     </template>
     <template v-else>
       <div class="full-width">
-        <v-img src="../assets/images/bullyingGame/end.png" max-height="212" max-width="328" cover
-          class="bg-grey-lighten-2 rounded-lg mx-auto"></v-img>
+        <v-img
+          src="../assets/images/bullyingGame/end.png"
+          max-height="212"
+          max-width="328"
+          cover
+          class="bg-grey-lighten-2 rounded-lg mx-auto"
+        ></v-img>
 
-        <h3 class="text-justify mt-3">
+        <h3 class="text-justify mt-3" v-if="showLikeButtons">
           <template v-if="score < 4">
-            <span>Lembre-se de sempre respeitar os amigos e colegas da escola, continue assim!</span>
+            <span
+              >Lembre-se de sempre respeitar os amigos e colegas da escola,
+              continue assim!</span
+            >
           </template>
           <template v-else>
-            <span>Você deve conversar com seus pais e professores sobre o que acontece na escola.</span>
+            <span
+              >Você deve conversar com seus pais e professores sobre o que
+              acontece na escola.</span
+            >
           </template>
         </h3>
+        <h3 v-else>Ficamos felizes por ter respondido tudo! Obrigado!</h3>
       </div>
       <div class="full-width">
         <div class="d-flex justify-space-between" v-if="showLikeButtons">
@@ -50,9 +80,9 @@
     </template>
   </v-container>
 </template>
-    
+
 <script>
-import { bullyingQuestions } from "../data/questions"
+import { bullyingQuestions } from "../data/questions";
 
 // Components
 export default {
@@ -61,40 +91,40 @@ export default {
     questionIndex: 0,
     score: 0,
     showResult: false,
-    showLikeButtons: true
+    showLikeButtons: true,
   }),
   computed: {
     currentQuestion() {
-      return bullyingQuestions.questions[this.questionIndex]
+      return bullyingQuestions.questions[this.questionIndex];
     },
     lastQuestion() {
-      return (this.questionIndex + 1) === bullyingQuestions.questions.length
-    }
+      return this.questionIndex + 1 === bullyingQuestions.questions.length;
+    },
   },
   watch: {
     questionIndex() {
       if (this.lastQuestion) {
-        this.showResult = true
+        this.showResult = true;
       }
-    }
+    },
   },
   methods: {
     handleAnsware(value) {
-      this.score += value
+      this.score += value;
       if (!this.lastQuestion) {
-        this.questionIndex++
+        this.questionIndex++;
       }
     },
     handleLike() {
-      this.showLikeButtons = false
+      this.showLikeButtons = false;
     },
     goToAbout() {
-      this.$router.push("/sobre")
-    }
+      this.$router.push("/sobre");
+    },
   },
 };
 </script>
-    
+
 <style scoped>
 .content-size {
   max-width: 328px;
@@ -119,4 +149,3 @@ a {
   text-transform: none;
 }
 </style>
-    
