@@ -83,7 +83,7 @@
 
 <script>
 import { bullyingQuestions } from "../data/questions";
-
+import { writeToFirestore } from "../plugins/firebase";
 // Components
 export default {
   name: "GameView",
@@ -105,6 +105,13 @@ export default {
     questionIndex() {
       if (this.lastQuestion) {
         this.showResult = true;
+        if (window.location.hostname !== "localhost") {
+          writeToFirestore({
+            score: this.score,
+            dia: new Date().toLocaleDateString(),
+            aplicacao: "descobrindo_o_bullying",
+          });
+        }
       }
     },
   },
