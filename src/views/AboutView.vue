@@ -1,6 +1,6 @@
 <template>
   <v-container
-    class="fill-height d-flex flex-column justify-space-between content-size"
+    class="max-height d-flex flex-column justify-space-between content-size"
   >
     <div class="full-width">
       <v-img
@@ -85,5 +85,9 @@ export default {
 
 a {
   text-decoration: underline;
+}
+
+.max-height {
+  min-height: calc(100dvh - 4rem);
 }
 </style>

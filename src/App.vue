@@ -1,6 +1,11 @@
 <template>
   <v-app class="background-red">
-    <v-app-bar v-if="$router.currentRoute.name != 'home'" app color="#8C251C" dark flat>
+    <v-app-bar
+      app
+      color="#8C251C"
+      dark
+      flat
+    >
       <v-icon dark @click="goHome">mdi-arrow-left</v-icon>
     </v-app-bar>
 
@@ -11,23 +16,24 @@
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: "App",
 
   methods: {
     goHome() {
-      this.$router.push("/")
-    }
-  }
+      if (this.$route.path == "/") {
+        window.open("https://explorandominhamente.netlify.app/");
+      }
+
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 
 <style>
 .background-red {
-  background: radial-gradient(circle,
-      #8C251C,
-      #BF3326) !important;
+  background: radial-gradient(circle, #8c251c, #bf3326) !important;
   background-repeat: no-repeat !important;
   -webkit-font-smoothing: antialiased !important;
   color: white !important;
