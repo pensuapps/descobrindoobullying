@@ -11,6 +11,52 @@
         class="bg-grey-lighten-2 rounded-lg mx-auto"
       ></v-img>
 
+      <h3 class="my-4"><strong> Bullying: dói por dentro, machuca por fora </strong></h3>
+
+      <p>
+        Bullying não é brincadeira. É quando alguém repete agressões físicas,
+        verbais ou psicológicas contra outra pessoa que tem dificuldade de se
+        defender. 
+        
+        <br>
+        <br> Como identificar: 
+        <ul>
+          <li>
+            Apelidos ofensivos;
+          </li>
+          <li>
+             Ameaças, empurrões, bater;
+          </li>
+          <li>
+             Espalhar mentiras e cyberbullying nas redes.  
+          </li>
+          
+        </ul>
+        <br>
+
+        Causa: baixa
+        autoestima, ansiedade, queda no rendimento escolar, medo de ir pra
+        escola.
+
+        <br><br>
+        O que fazer: 
+        <ol>
+          <li>
+            Não revide e não fique calado. Conte pra um
+        adulto de confiança: pai, mãe, professor, coordenador.
+          </li>
+          <li>
+            Se ver
+        acontecendo com alguém, não ria e não filme. Apoie a vítima e conte para
+        professores.
+          </li>
+          <li>
+            A escola é obrigada por lei a ter plano de combate ao
+        bullying.
+      </li>
+        </ol>
+ 
+      </p>
       <p class="mt-3">
         Quero saber mais:
         <a class="primary--text" @click="goToVideo1"

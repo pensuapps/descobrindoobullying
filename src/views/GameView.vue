@@ -76,7 +76,7 @@
           </div>
         </div>
         <a
-          class="text-center primary rounded-pill py-2 px-4 cursor-pointer mt-2 mb-2 d-flex align-center justify-center"
+          class="text-center primary white--text rounded-pill py-2 px-4 cursor-pointer mt-2 mb-2 d-flex align-center justify-center"
           @click="goToAbout"
         >
           <v-icon class="white--text"> mdi-lightbulb </v-icon> Ficou curioso?
